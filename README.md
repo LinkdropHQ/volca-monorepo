@@ -13,6 +13,6 @@ This is a work in progress. Expect breaking changes. The code has not been audit
 ## Structure
 Packages maintained with this monorepo are listed below.
 
-- [Contracts](https://github.com/LinkdropProtocol/volca-monorepo/tree/master/packages/volca-contracts) - all contracts used in this project
-- [Relayer](https://github.com/LinkdropProtocol/volca-monorepo/tree/master/packages/volca-relayer) - node.js server application that allows interacting with blockchain
-- [SDK](https://github.com/LinkdropProtocol/volca-monorepo/tree/master/packages/volca-sdk) - a JS library, that helps to communicate with relayer and generate links
+- [Contracts](https://github.com/LinkdropProtocol/volca-monorepo/tree/master/packages/contracts) - all contracts used in this project
+- [Relayer](https://github.com/LinkdropProtocol/volca-monorepo/tree/master/packages/relayer) - node.js server application that allows interacting with blockchain
+- [SDK](https://github.com/LinkdropProtocol/volca-monorepo/tree/master/packages/sdk) - a JS library, that helps to communicate with relayer and generate links
