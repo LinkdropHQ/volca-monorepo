@@ -1,7 +1,6 @@
 {
   "name": "@volca/sdk",
-  "version": "0.0.0",
-  "description": "> TODO: description",
+  "version": "0.0.1",
   "keywords": [
     "sdk"
   ],
@@ -28,5 +27,16 @@
   },
   "bugs": {
     "url": "https://github.com/LinkdropProtocol/volca-monorepo/issues"
+  },
+  "dependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/node": "^7.2.2",
+    "dotenv": "^7.0.0",
+    "ethers": "^4.0.27",
+    "idempotent-babel-polyfill": "^0.1.1",
+    "isomorphic-fetch": "^2.2.1"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.4.2"
   }
 }
