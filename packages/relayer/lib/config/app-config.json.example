@@ -1,0 +1,16 @@
+{
+    "logLevel": "debug",
+    "port" : 8008,
+    "mongoose": {
+	"uri": "mongodb://localhost/volca-linkdrop"
+    },
+    "HTTPS_ON": false,
+    "NETWORK_ID": "3", //3 for ropsten
+    "ETHEREUM_ACCOUNT_ADDRESS": "",
+    "ETHEREUM_ACCOUNT_PK": "",    
+    "ETHEREUM_NETWORK": "ropsten",
+    "ERC20_LINKDROP_CONTRACT_ADDRESS": "0x989ed0518a4f1426861f47590b1807b6484c5367",
+    "LINKDROP_PRIVATE_KEY": "0x7a2a6b3a7dd14e7f28cb545d82760bcfa68ff56f4e82c5c584720b999bf2830a", //linkdrop verification key
+
+    "GOOGLE_CLIENT_ID": "<GOOGLE_ID_FOR_REFERRAL>"
+}n

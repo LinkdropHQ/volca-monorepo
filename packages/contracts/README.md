@@ -1,11 +1,25 @@
-# `@volca/contracts`
+# Volcà Contracts
 
-> TODO: description
+Contracts for Volcà Linkdrop App
 
-## Usage
+[Technology Overview](https://medium.com/volcà/technology-overview-erc20-nft-linkdrop-c2909f9bcd19)
 
+## Installation
+
+### Install dependencies
+
+```bash
+npm install
 ```
-const contracts = require('@volca/contracts');
 
-// TODO: DEMONSTRATE API
+### Compile contracts
+
+```bash
+npx waffle
+```
+
+### Test contracts
+
+```bash
+npm run test
 ```

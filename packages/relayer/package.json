@@ -1,29 +1,41 @@
 {
   "name": "@volca/relayer",
-  "version": "0.0.0",
-  "description": "> TODO: description",
-  "author": "Amir <amiromayer@gmail.com>",
-  "homepage": "https://github.com/LinkdropProtocol/volca-monorepo#readme",
-  "license": "GPL-3.0",
-  "main": "lib/relayer.js",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
+  "version": "0.0.1",
+  "scripts": {
+    "start": "node relayer",
+    "watch": "nodemon relayer"
   },
-  "files": [
-    "lib"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
+  "description": "",
+  "main": "relayer.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LinkdropProtocol/volca-monorepo.git"
   },
-  "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
-  },
+  "author": "Mikhail Dobrokhvalov, Amir Jumaniyazov <amiromayer@gmail.com>",
+  "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/LinkdropProtocol/volca-monorepo/issues"
+  },
+  "homepage": "https://github.com/LinkdropProtocol/volca-monorepo#readme",
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "async": "^2.6.1",
+    "authy": "^1.2.0",
+    "axios": "^0.18.0",
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.17.2",
+    "co": "^4.6.0",
+    "ethers": "^4.0.12",
+    "express": "^4.15.4",
+    "express-async-handler": "^1.1.3",
+    "google-auth-library": "^2.0.0",
+    "method-override": "^2.3.9",
+    "mongoose": "4.10.8",
+    "morgan": "^1.8.2",
+    "nconf": "^0.8.4",
+    "underscore": "^1.8.3",
+    "winston": "^2.3.1"
   }
 }
