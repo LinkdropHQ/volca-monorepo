@@ -5,6 +5,12 @@ import {
   deployNFTLinkdropContract
 } from "./deploy";
 import { generateTokensClaimLink, generateNFTClaimLink } from "./generateLinks";
+import {
+  isLinkClaimed,
+  getTokensLinkdropParams,
+  getNFTLinkdropParams,
+  getNFTMetadata
+} from "./getLinkdropParams";
 
 const VolcaSDK = {
   approveTokens,
@@ -14,7 +20,11 @@ const VolcaSDK = {
   deployTokensLinkdropContract,
   deployNFTLinkdropContract,
   generateTokensClaimLink,
-  generateNFTClaimLink
+  generateNFTClaimLink,
+  isLinkClaimed,
+  getTokensLinkdropParams,
+  getNFTLinkdropParams,
+  getNFTMetadata
 };
 
 module.exports = VolcaSDK;

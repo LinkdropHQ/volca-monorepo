@@ -9671,7 +9671,7 @@ solc@^0.5.1:
     tmp "0.0.33"
     yargs "^11.0.0"
 
-"solidity-coverage@github:LimeChain/solidity-coverage#master":
+solidity-coverage@LimeChain/solidity-coverage#master:
   version "0.5.11"
   resolved "https://codeload.github.com/LimeChain/solidity-coverage/tar.gz/044b6d3962c89e3b8e2a24c9784394eb7b16581d"
   dependencies:

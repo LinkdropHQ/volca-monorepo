@@ -1,6 +1,6 @@
 require("dotenv").config();
 const ethers = require("ethers");
-import { ABI } from "../src/metadata/erc721";
+import { ABI } from "../lib/metadata/erc721";
 
 const VolcaSDK = require("../lib/index");
 
@@ -75,6 +75,22 @@ const networkId = process.env.NETWORK_ID;
 
   owner = await nftContract.ownerOf(tokenId);
   console.log(`Owner of token with tokenId = ${tokenId} is ${owner} `);
+
+  //5. Get linkdrop params and log to console
+
+  let params = await VolcaSDK.getNFTLinkdropParams(
+    linkdropContractAddress,
+    ropstenProvider
+  );
+  console.log("\n☑️ Linkdrop params: ", params);
+
+  // 6. Get NFT metadata and log to console
+  let nftMetadata = await VolcaSDK.getNFTMetadata(
+    process.env.ERC721_TOKEN_ADDRESS,
+    23,
+    ropstenProvider
+  );
+  console.log("\n♦️ nftMetadata: ", nftMetadata);
 
   console.log(
     "=====================================================================================\n"

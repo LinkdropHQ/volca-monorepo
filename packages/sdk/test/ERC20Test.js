@@ -1,6 +1,5 @@
 require("dotenv").config();
 const ethers = require("ethers");
-const ropstenProvider = ethers.getDefaultProvider("ropsten");
 
 const VolcaSDK = require("../lib/index");
 const host = process.env.HOST;
@@ -11,6 +10,8 @@ const networkId = process.env.NETWORK_ID;
   let referralReward = 0;
   let claimAmountEth = 0;
   let linksNumber = 5;
+
+  const ropstenProvider = ethers.getDefaultProvider("ropsten");
 
   // 1. Deploy
   let {
@@ -60,4 +61,11 @@ const networkId = process.env.NETWORK_ID;
     linkKey,
     linkdropperSignature
   });
+
+  // 5. Get linkdrop params and log to console
+  let params = await VolcaSDK.getTokensLinkdropParams(
+    linkdropContractAddress,
+    ropstenProvider
+  );
+  console.log("\n☑️ Linkdrop params: ", params);
 })();
