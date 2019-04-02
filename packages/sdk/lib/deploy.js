@@ -40,7 +40,7 @@ export const deployTokensLinkdropContract = async (
   let claimAmountEthInWei = ethers.utils.parseUnits(claimAmountEth.toString());
   let txValue = ethers.utils.bigNumberify(claimAmountEthInWei).mul(linksNumber);
 
-  let contract = await factory.deploy(
+  let linkdropContract = await factory.deploy(
     tokenAddress,
     claimAmount,
     referralAmount,
@@ -49,15 +49,19 @@ export const deployTokensLinkdropContract = async (
     { value: txValue }
   );
   console.log("\n⚠️ Deploying ERC20 linkdrop contract...");
-  await contract.deployed();
-  let linkdropContractAddress = contract.address;
+
+  let linkdropContractAddress = linkdropContract.address;
   console.log("\n✅ Contract deployed at:", linkdropContractAddress);
 
-  let txHash = contract.deployTransaction.hash;
+  let txHash = linkdropContract.deployTransaction.hash;
   console.log("\n📤 TXHash: ", txHash);
+
+  //await contract.deployed();
+
   return {
     txHash,
     linkdropContractAddress,
+    linkdropContract,
     linkdropVerificationKey,
     linkdropVerificationAddress
   };
@@ -70,7 +74,8 @@ export const deployTokensLinkdropContract = async (
 export const deployNFTLinkdropContract = async (
   nftAddress,
   provider,
-  privateKey //privKey of deployer (linkdropper)
+  privateKey, //privKey of deployer (linkdropper)
+  onTxMined
 ) => {
   let wallet = new ethers.Wallet(privateKey, provider);
 
@@ -89,17 +94,24 @@ export const deployNFTLinkdropContract = async (
     linkdropVerificationKey
   );
 
-  let contract = await factory.deploy(nftAddress, linkdropVerificationAddress);
+  let linkdropContract = await factory.deploy(
+    nftAddress,
+    linkdropVerificationAddress
+  );
   console.log("\n⚠️ Deploying ERC721 linkdrop contract...");
-  await contract.deployed();
-  let contractAddress = contract.address;
+
+  let linkdropContractAddress = linkdropContract.address;
   console.log("\n✅ Contract deployed at:", contractAddress);
 
-  let txHash = contract.deployTransaction.hash;
+  let txHash = linkdropContract.deployTransaction.hash;
   console.log("\n📤 TXHash: ", txHash);
+
+  //await contract.deployed();
+
   return {
     txHash,
-    contractAddress,
+    linkdropContractAddress,
+    linkdropContract,
     linkdropVerificationKey,
     linkdropVerificationAddress
   };

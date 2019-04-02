@@ -11,7 +11,7 @@ export const approveTokens = async (
 ) => {
   let wallet = new ethers.Wallet(privateKey, provider);
   let tokenContract = new ethers.Contract(tokenAddress, ERC20_ABI, wallet);
-  await tokenContract.approve(to, amount, { gasLimit: 75000 });
+  return await tokenContract.approve(to, amount, { gasLimit: 75000 });
 };
 
 // =================================================================================================================
@@ -21,5 +21,5 @@ export const approveTokens = async (
 export const approveNFT = async ({ nftAddress, to, provider, privateKey }) => {
   let wallet = new ethers.Wallet(privateKey, provider);
   let nftContract = new ethers.Contract(nftAddress, ERC721_ABI, wallet);
-  await nftContract.setApprovalForAll(to, true, { gasLimit: 200000 });
+  return await nftContract.setApprovalForAll(to, true, { gasLimit: 200000 });
 };
