@@ -51,7 +51,7 @@ export const deployTokensLinkdropContract = async (
   console.log("\n⚠️ Deploying ERC20 linkdrop contract...");
 
   let linkdropContractAddress = linkdropContract.address;
-  console.log("\n✅ Contract deployed at:", linkdropContractAddress);
+  console.log("\n📃 Contract address:", linkdropContractAddress);
 
   let txHash = linkdropContract.deployTransaction.hash;
   console.log("\n📤 TXHash: ", txHash);
@@ -74,8 +74,7 @@ export const deployTokensLinkdropContract = async (
 export const deployNFTLinkdropContract = async (
   nftAddress,
   provider,
-  privateKey, //privKey of deployer (linkdropper)
-  onTxMined
+  privateKey //privKey of deployer (linkdropper)
 ) => {
   let wallet = new ethers.Wallet(privateKey, provider);
 
@@ -101,12 +100,12 @@ export const deployNFTLinkdropContract = async (
   console.log("\n⚠️ Deploying ERC721 linkdrop contract...");
 
   let linkdropContractAddress = linkdropContract.address;
-  console.log("\n✅ Contract deployed at:", contractAddress);
+  console.log("\n📄 Contract address:", linkdropContractAddress);
 
   let txHash = linkdropContract.deployTransaction.hash;
   console.log("\n📤 TXHash: ", txHash);
 
-  //await contract.deployed();
+  //await linkdropContract.deployed();
 
   return {
     txHash,

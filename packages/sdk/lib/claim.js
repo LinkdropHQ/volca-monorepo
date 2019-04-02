@@ -21,10 +21,10 @@ const callServerToClaimTokens = async (host, claimParams) => {
     });
 
     if (response.status !== 200) {
-      console.error(`❌ Invalid response status ${response.status}`);
+      console.error(`\n❌ Invalid response status ${response.status}`);
       throw await response.json();
     } else {
-      console.log("✅ Successfully claimed tokens");
+      console.log("\n✅ Successfully claimed tokens");
       return await response.json();
     }
   } catch (err) {
@@ -79,10 +79,10 @@ const callServerToClaimNFT = async (host, claimParams) => {
     });
 
     if (response.status !== 200) {
-      console.error(`❌ Invalid response status ${response.status}`);
+      console.error(`\n❌ Invalid response status ${response.status}`);
       throw await response.json();
     } else {
-      console.log("✅ Successfully claimed NFT");
+      console.log("\n✅ Successfully claimed NFT");
       return await response.json();
     }
     // return await response.json();

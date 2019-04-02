@@ -16,7 +16,9 @@ const networkId = process.env.NETWORK_ID;
   // 1. Deploy
   let {
     linkdropContractAddress,
-    linkdropVerificationKey
+    linkdropContract,
+    linkdropVerificationKey,
+    linkdropVerificationAddress
   } = await VolcaSDK.deployTokensLinkdropContract(
     process.env.ERC20_TOKEN_ADDRESS,
     claimAmount,
@@ -26,6 +28,9 @@ const networkId = process.env.NETWORK_ID;
     ropstenProvider, //provider
     process.env.LINKDROPPER_PRIVATE_KEY //linkdropper's privateKey
   );
+
+  // Need to wait before deployment tx is mined
+  await linkdropContract.deployed();
 
   // 2. Approve
   let amount = 1000;

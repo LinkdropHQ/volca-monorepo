@@ -29,7 +29,8 @@ const networkId = process.env.NETWORK_ID;
 
   // 1. Deploy
   let {
-    contractAddress: linkdropContractAddress,
+    linkdropContractAddress,
+    linkdropContract,
     linkdropVerificationKey,
     linkdropVerificationAddress
   } = await VolcaSDK.deployNFTLinkdropContract(
@@ -38,8 +39,10 @@ const networkId = process.env.NETWORK_ID;
     process.env.LINKDROPPER_PRIVATE_KEY //linkdropper's privateKey
   );
 
-  // 2. Approve
+  // Need to wait before deployment tx is mined
+  await linkdropContract.deployed();
 
+  // 2. Approve
   await VolcaSDK.approveNFT(
     {
       nftAddress: process.env.ERC721_TOKEN_ADDRESS,
