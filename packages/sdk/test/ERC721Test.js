@@ -1,8 +1,8 @@
 require("dotenv").config();
 const ethers = require("ethers");
-import { ABI } from "../lib/metadata/erc721";
+import { ABI } from "../src/metadata/erc721";
 
-const VolcaSDK = require("../lib/index");
+const VolcaSDK = require("../src/index");
 
 let ropstenProvider = ethers.getDefaultProvider("ropsten");
 const host = process.env.HOST;
@@ -28,16 +28,18 @@ const networkId = process.env.NETWORK_ID;
   console.log(`Owner of token with tokenId = ${tokenId} is ${owner} `);
 
   // 1. Deploy
+  let linkdropParams = {
+    nftAddress: process.env.ERC721_TOKEN_ADDRESS,
+    provider: ropstenProvider, //provider
+    privateKey: process.env.LINKDROPPER_PRIVATE_KEY //linkdropper's privateKey
+  };
+
   let {
     linkdropContractAddress,
     linkdropContract,
     linkdropVerificationKey,
     linkdropVerificationAddress
-  } = await VolcaSDK.deployNFTLinkdropContract(
-    process.env.ERC721_TOKEN_ADDRESS,
-    ropstenProvider, //provider
-    process.env.LINKDROPPER_PRIVATE_KEY //linkdropper's privateKey
-  );
+  } = await VolcaSDK.deployNFTLinkdropContract(linkdropParams);
 
   // Need to wait before deployment tx is mined
   await linkdropContract.deployed();

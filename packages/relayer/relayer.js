@@ -3,12 +3,12 @@
 // set up ========================
 const express = require("express");
 const app = express(); // create our app w/ express
-const log = require("./lib/libs/log")(module);
-const config = require("./lib/config/app-config");
+const log = require("./src/libs/log")(module);
+const config = require("./src/config/app-config");
 const morgan = require("morgan"); // log requests to the console (express4)
 const bodyParser = require("body-parser"); // pull information from HTML POST (express4)
 const methodOverride = require("method-override"); // simulate DELETE and PUT (express4)
-const buildRouter = require("./lib/routes");
+const buildRouter = require("./src/routes");
 const https = require("https");
 const fs = require("fs");
 
@@ -31,7 +31,7 @@ var allowCrossDomain = function(req, res, next) {
 };
 
 // connect to database
-require("./lib/models/mongoose").connectDB();
+require("./src/models/mongoose").connectDB();
 
 // ROUTES
 app.use("/api/v1/", allowCrossDomain, buildRouter("routes"));

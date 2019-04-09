@@ -1,7 +1,7 @@
 require("dotenv").config();
 const ethers = require("ethers");
 
-const VolcaSDK = require("../lib/index");
+const VolcaSDK = require("../src/index");
 const host = process.env.HOST;
 const networkId = process.env.NETWORK_ID;
 
@@ -14,20 +14,22 @@ const networkId = process.env.NETWORK_ID;
   const ropstenProvider = ethers.getDefaultProvider("ropsten");
 
   // 1. Deploy
+  let linkdropParams = {
+    tokenAddress: process.env.ERC20_TOKEN_ADDRESS,
+    claimAmount,
+    referralReward,
+    claimAmountEth,
+    linksNumber,
+    provider: ropstenProvider, //provider
+    privateKey: process.env.LINKDROPPER_PRIVATE_KEY
+  };
+
   let {
     linkdropContractAddress,
     linkdropContract,
     linkdropVerificationKey,
     linkdropVerificationAddress
-  } = await VolcaSDK.deployTokensLinkdropContract(
-    process.env.ERC20_TOKEN_ADDRESS,
-    claimAmount,
-    referralReward,
-    claimAmountEth,
-    linksNumber,
-    ropstenProvider, //provider
-    process.env.LINKDROPPER_PRIVATE_KEY //linkdropper's privateKey
-  );
+  } = await VolcaSDK.deployTokensLinkdropContract(linkdropParams);
 
   // Need to wait before deployment tx is mined
   await linkdropContract.deployed();

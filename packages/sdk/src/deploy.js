@@ -11,15 +11,17 @@ import { generateAccount } from "./utils";
 //                                         ERC20
 // =================================================================================================================
 
-export const deployTokensLinkdropContract = async (
-  tokenAddress,
-  claimAmount,
-  referralAmount = 0,
-  claimAmountEth = 0,
-  linksNumber,
-  provider,
-  privateKey //privKey of deployer (linkdropper) for testing purposes only
-) => {
+export const deployTokensLinkdropContract = async linkdropParams => {
+  let {
+    tokenAddress,
+    claimAmount,
+    referralAmount = 0,
+    claimAmountEth = 0,
+    linksNumber,
+    provider,
+    privateKey
+  } = linkdropParams;
+
   let wallet = new ethers.Wallet(privateKey, provider);
 
   let factory = new ethers.ContractFactory(
@@ -71,11 +73,10 @@ export const deployTokensLinkdropContract = async (
 //                                         ERC721
 // =================================================================================================================
 
-export const deployNFTLinkdropContract = async (
-  nftAddress,
-  provider,
-  privateKey //privKey of deployer (linkdropper)
-) => {
+export const deployNFTLinkdropContract = async linkdropParams => {
+  //privateKey of deployer (linkdropper)
+  let { nftAddress, provider, privateKey } = linkdropParams;
+
   let wallet = new ethers.Wallet(privateKey, provider);
 
   let factory = new ethers.ContractFactory(
